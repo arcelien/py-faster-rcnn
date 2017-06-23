@@ -21,7 +21,7 @@ models/[dataset name]/[net-name]/[RCNN Type]
 
 Note that if you copy the solver from a ZF/RCNN net, you will have to change the names/model prototxt link.
 
-### Net Surgery
+### Editing the prototxt
 Gather a normal train/deploy prototxt file used for classification, and the ZF model from 
 ```
 models/[dataset name]/ZF/[RCNN Type]
