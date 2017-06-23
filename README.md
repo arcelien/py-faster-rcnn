@@ -4,8 +4,33 @@
 - It's probably easiest to switch python to anaconda if you have compliation/runtime linking errors
 - Make sure you install easydict: 'pip install easydict', and opencv
 - If you get some Intel MKL FATAL ERROR, you need to use the nomkl package instead. From anaconda, do: `conda install nomkl`
-- 
 
+### Training custom models
+
+First, get some default (ZF/VGG) model to work. (instructions below)
+
+Now, Add/link the pre-trained .caffemodel to:
+```
+data/imagenet_models/[net-name].v2.caffemodel
+```
+
+Add the solver, training, and testing prototxt files to:
+```
+models/[dataset name]/[net-name]/[RCNN Type]
+```
+
+Note that if you copy the solver from a ZF/RCNN net, you will have to change the names/model prototxt link.
+
+### Net Surgery
+Gather a normal train/deploy prototxt file used for classification, and the ZF model from `models/[dataset name]/ZF/[RCNN Type]. 
+
+Duplicate the ZF files, and identify where the convolutional layers conv1 to relu5/conv5 are in both models. Replace the layers in the copied ZF net with the ones from your custom model. Make sure you don't copy the pool 5 layer, but only everything before. 
+
+Now, go past the RPN/ROI sections to the RCNN section. You can copy the layers starting from fc6 to drop7 from your custom model to the modified ZF net. You will probably have to change the name of the bottom pool layer going into the fc6 layer to something like `roi_pool_conv5`.
+
+We did not touch the data layers, the RPN layers, the ROI proposal layers, or final layers starting at fc8 because they are shared among all Faster RCNN models.
+
+### === Original Readme below ===
 
 ### Disclaimer
 
