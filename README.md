@@ -1,5 +1,13 @@
 ## Installation Instructions
 
+Steps
+1. Set up python with the required packages
+2. Build the custom caffe in `caffe-fast-rcnn\`
+3. Get `./tools/demo.py` running
+4. Get `./experiments/scripts/faster_rcnn_end2end.sh [GPU_ID] ZF pascal_voc` running
+5. Get your custom model running
+
+Gotchas:
 - Use numpy version 11.1, NOT 11.2+, or you will get a runtime error.
 - It's probably easiest to switch your python installation to anaconda if you have compliation/runtime linking errors
 - Make sure you install easydict: 'pip install easydict', and opencv
