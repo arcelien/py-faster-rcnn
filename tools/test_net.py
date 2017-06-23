@@ -17,6 +17,7 @@ import caffe
 import argparse
 import pprint
 import time, os, sys
+import google.protobuf.text_format
 
 def parse_args():
     """
