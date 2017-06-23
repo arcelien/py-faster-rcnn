@@ -1,7 +1,7 @@
 ## Installation Instructions
 
-- Use numpy version 11.1, NOT 11.2, or you will get a runtime error.
-- It's probably easiest to switch python to anaconda if you have compliation/runtime linking errors
+- Use numpy version 11.1, NOT 11.2+, or you will get a runtime error.
+- It's probably easiest to switch your python installation to anaconda if you have compliation/runtime linking errors
 - Make sure you install easydict: 'pip install easydict', and opencv
 - If you get some Intel MKL FATAL ERROR, you need to use the nomkl package instead. From anaconda, do: `conda install nomkl`
 
