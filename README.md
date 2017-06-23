@@ -22,7 +22,10 @@ models/[dataset name]/[net-name]/[RCNN Type]
 Note that if you copy the solver from a ZF/RCNN net, you will have to change the names/model prototxt link.
 
 ### Net Surgery
-Gather a normal train/deploy prototxt file used for classification, and the ZF model from `models/[dataset name]/ZF/[RCNN Type]. 
+Gather a normal train/deploy prototxt file used for classification, and the ZF model from 
+```
+models/[dataset name]/ZF/[RCNN Type]
+```
 
 Duplicate the ZF files, and identify where the convolutional layers conv1 to relu5/conv5 are in both models. Replace the layers in the copied ZF net with the ones from your custom model. Make sure you don't copy the pool 5 layer, but only everything before. 
 
